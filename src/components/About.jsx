@@ -2,48 +2,63 @@ import { useLang } from '../context/LangContext'
 import useScrollReveal from '../hooks/useScrollReveal'
 import './About.css'
 
+const years = ['2007', '2010', '2015', '2021', '2024', '2026']
+
+const bars = [
+  { color: '#f06292', position: 'top',    start: 0, end: 1 },
+  { color: '#80deea', position: 'bottom', start: 1, end: 2 },
+  { color: '#ffca28', position: 'top',    start: 2, end: 3 },
+  { color: '#a5d6a7', position: 'bottom', start: 3, end: 4 },
+  { color: '#ffab40', position: 'top',    start: 4, end: 5 },
+]
+
 export default function About() {
   const { t } = useLang()
+  const titleRef = useScrollReveal()
+  const timelineRef = useScrollReveal()
 
-  const leftRef  = useScrollReveal()
-  const bioRef   = useScrollReveal()
-  const linksRef = useScrollReveal()
+  const cellWidth = 100 / years.length
 
   return (
     <section id="about" className="about">
-      <div className="container about__grid">
+      <div className="container">
 
-        <div ref={leftRef} className="about__left reveal reveal--left">
+        <div ref={titleRef} className="about__header reveal reveal--left">
           <span className="section-label">{t.about.label}</span>
           <h2>{t.about.title.split('\n').map((line, i) => (
             <span key={i}>{line}{i === 0 && <br />}</span>
           ))}</h2>
         </div>
 
-        <div className="about__right">
-          <div ref={bioRef} className="about__bio reveal" data-delay="1">
-            <p>{t.about.bio_p1}</p>
-            <p>{t.about.bio_p2}</p>
-          </div>
-
-          <div ref={linksRef} className="about__links reveal" data-delay="2">
-            <a href="#" className="btn btn-outline" target="_blank" rel="noopener noreferrer">
-              {t.about.cv}
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
-              </svg>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/elyot-trubert-965070382"
-              className="btn btn-primary"
-              target="_blank"
-              rel="noopener noreferrer"
+        <div ref={timelineRef} className="timeline reveal" data-delay="1">
+          {/* Colored bars */}
+          {bars.map((bar, i) => (
+            <div
+              key={i}
+              className={`timeline__bar timeline__bar--${bar.position}`}
+              style={{
+                '--bar-color': bar.color,
+                '--bar-delay': `${i * 0.3}s`,
+                background: bar.color,
+                left: `${(bar.start + 0.5) * cellWidth}%`,
+                width: `${(bar.end - bar.start) * cellWidth}%`,
+              }}
             >
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
-              </svg>
-              LinkedIn
-            </a>
+              <div className={`timeline__stem timeline__stem--${bar.position}`}>
+                <div className="timeline__stem-line" />
+                <div className="timeline__stem-diamond" />
+              </div>
+            </div>
+          ))}
+
+          {/* Arrow */}
+          <div className="timeline__arrow">
+            {years.map((year, i) => (
+              <div key={i} className="timeline__cell">
+                <span className="timeline__year">{year}</span>
+              </div>
+            ))}
+            <div className="timeline__arrow-tip" />
           </div>
         </div>
 
