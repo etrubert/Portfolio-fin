@@ -1,16 +1,18 @@
 import { useState, useEffect } from 'react'
+import { useLang } from '../context/LangContext'
 import './Navbar.css'
 
-const links = [
-  { label: 'About', href: '#about' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'Skills', href: '#skills' },
-  { label: 'Contact', href: '#contact' },
-]
-
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
+  const { lang, toggle, t } = useLang()
+  const [scrolled, setScrolled]   = useState(false)
+  const [menuOpen, setMenuOpen]   = useState(false)
+
+  const links = [
+    { label: t.nav.about,    href: '#about' },
+    { label: t.nav.projects, href: '#projects' },
+    { label: t.nav.skills,   href: '#skills' },
+    { label: t.nav.contact,  href: '#contact' },
+  ]
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
@@ -36,9 +38,18 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <a className="btn btn-primary navbar__cta" href="#contact">
-          Hire me
-        </a>
+        <div className="navbar__right">
+          {/* Language toggle */}
+          <button className="lang-toggle" onClick={toggle} aria-label="Switch language">
+            <span className={lang === 'fr' ? 'lang-toggle__active' : ''}>FR</span>
+            <span className="lang-toggle__sep" />
+            <span className={lang === 'en' ? 'lang-toggle__active' : ''}>EN</span>
+          </button>
+
+          <a className="btn btn-primary navbar__cta" href="#contact">
+            {t.nav.hire}
+          </a>
+        </div>
 
         <button
           className={`navbar__burger ${menuOpen ? 'open' : ''}`}
@@ -56,9 +67,16 @@ export default function Navbar() {
               {l.label}
             </button>
           ))}
-          <a className="btn btn-primary" href="#contact" onClick={() => setMenuOpen(false)}>
-            Hire me
-          </a>
+          <div className="navbar__mobile-bottom">
+            <button className="lang-toggle" onClick={toggle} aria-label="Switch language">
+              <span className={lang === 'fr' ? 'lang-toggle__active' : ''}>FR</span>
+              <span className="lang-toggle__sep" />
+              <span className={lang === 'en' ? 'lang-toggle__active' : ''}>EN</span>
+            </button>
+            <a className="btn btn-primary" href="#contact" onClick={() => setMenuOpen(false)}>
+              {t.nav.hire}
+            </a>
+          </div>
         </div>
       )}
     </header>

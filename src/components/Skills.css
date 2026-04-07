@@ -12,7 +12,7 @@
 
 .skills__grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2px;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -24,10 +24,18 @@
   background: var(--bg-card);
   transition: background 0.3s ease;
   border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
-.skill-group:last-child {
+/* Remove right border on last of each row */
+.skill-group:nth-child(3n) {
   border-right: none;
+}
+
+/* Remove bottom border on last row */
+.skill-group:nth-last-child(-n+3):nth-child(3n+1),
+.skill-group:nth-last-child(-n+3):nth-child(3n+1) ~ .skill-group {
+  border-bottom: none;
 }
 
 .skill-group:hover {
@@ -86,8 +94,19 @@
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
   }
+  .skill-group:nth-child(3n) {
+    border-right: 1px solid var(--border);
+  }
   .skill-group:nth-child(2n) {
     border-right: none;
+  }
+  .skill-group:nth-last-child(-n+3):nth-child(3n+1),
+  .skill-group:nth-last-child(-n+3):nth-child(3n+1) ~ .skill-group {
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-group:nth-last-child(-n+2):nth-child(2n+1),
+  .skill-group:nth-last-child(-n+2):nth-child(2n+1) ~ .skill-group {
+    border-bottom: none;
   }
 }
 

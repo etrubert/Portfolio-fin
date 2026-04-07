@@ -21,37 +21,16 @@
 }
 
 .about__bio {
-  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 560px;
+}
+
+.about__bio p {
+  font-size: 1rem;
   color: var(--text-muted);
   line-height: 1.8;
-  max-width: 520px;
-}
-
-/* Stats */
-.about__stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  padding: 32px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.stat__number {
-  display: block;
-  font-family: var(--font-display);
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: var(--text);
-  line-height: 1;
-  letter-spacing: -0.03em;
-}
-
-.stat__label {
-  display: block;
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-top: 6px;
 }
 
 /* Links */
@@ -65,14 +44,5 @@
   .about__grid {
     grid-template-columns: 1fr;
     gap: 40px;
-  }
-  .about__stats {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .about__stats {
-    grid-template-columns: 1fr 1fr;
   }
 }

@@ -1,3 +1,4 @@
+import { useLang } from '../context/LangContext'
 import useScrollReveal from '../hooks/useScrollReveal'
 import './Projects.css'
 
@@ -6,7 +7,7 @@ const projects = [
     id: 1,
     title: 'Nom du projet 1',
     category: 'Web Design',
-    description: 'Description courte du projet. Ce que vous avez fait, les technologies utilisées et l\'impact.',
+    description: "Description courte du projet. Ce que vous avez fait, les technologies utilisées et l'impact.",
     tags: ['React', 'CSS', 'API'],
     year: '2024',
     link: '#',
@@ -15,7 +16,7 @@ const projects = [
     id: 2,
     title: 'Nom du projet 2',
     category: 'Development',
-    description: 'Description courte du projet. Ce que vous avez fait, les technologies utilisées et l\'impact.',
+    description: "Description courte du projet. Ce que vous avez fait, les technologies utilisées et l'impact.",
     tags: ['Next.js', 'Node.js', 'PostgreSQL'],
     year: '2024',
     link: '#',
@@ -24,7 +25,7 @@ const projects = [
     id: 3,
     title: 'Nom du projet 3',
     category: 'Branding',
-    description: 'Description courte du projet. Ce que vous avez fait, les technologies utilisées et l\'impact.',
+    description: "Description courte du projet. Ce que vous avez fait, les technologies utilisées et l'impact.",
     tags: ['Figma', 'Illustrator'],
     year: '2023',
     link: '#',
@@ -33,7 +34,7 @@ const projects = [
     id: 4,
     title: 'Nom du projet 4',
     category: 'Mobile',
-    description: 'Description courte du projet. Ce que vous avez fait, les technologies utilisées et l\'impact.',
+    description: "Description courte du projet. Ce que vous avez fait, les technologies utilisées et l'impact.",
     tags: ['React Native', 'Firebase'],
     year: '2023',
     link: '#',
@@ -41,6 +42,7 @@ const projects = [
 ]
 
 export default function Projects() {
+  const { t } = useLang()
   const headerRef = useScrollReveal()
   const introRef  = useScrollReveal()
 
@@ -49,12 +51,13 @@ export default function Projects() {
       <div className="container">
         <div className="projects__header">
           <div ref={headerRef} className="reveal reveal--left">
-            <span className="section-label">Projets</span>
-            <h2>Ce que j'ai<br />construit</h2>
+            <span className="section-label">{t.projects.label}</span>
+            <h2>{t.projects.title.split('\n').map((line, i) => (
+              <span key={i}>{line}{i === 0 && <br />}</span>
+            ))}</h2>
           </div>
           <p ref={introRef} className="projects__intro reveal reveal--right" data-delay="1">
-            {/* À remplir */}
-            Une sélection de mes projets récents.
+            {t.projects.intro}
           </p>
         </div>
 
@@ -69,26 +72,18 @@ export default function Projects() {
 }
 
 function ProjectCard({ project, index }) {
-  const ref = useScrollReveal({ threshold: 0.1 })
-  const delay = (index % 2) + 1   // alternating 1 / 2 for grid pairs
+  const { t } = useLang()
+  const ref   = useScrollReveal({ threshold: 0.1 })
+  const delay = (index % 2) + 1
 
   return (
-    <article
-      ref={ref}
-      className="project-card reveal"
-      data-delay={delay}
-    >
+    <article ref={ref} className="project-card reveal" data-delay={delay}>
       <div className="project-card__image">
         <div className="project-card__placeholder">
           <span>{project.title.charAt(0)}</span>
         </div>
-        <a
-          href={project.link}
-          className="project-card__visit"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Voir le projet
+        <a href={project.link} className="project-card__visit" target="_blank" rel="noopener noreferrer">
+          {t.projects.visit}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
           </svg>
