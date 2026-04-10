@@ -5,12 +5,13 @@ import './Projects.css'
 const projects = [
   {
     id: 1,
-    title: 'Nom du projet 1',
-    category: 'Web Design',
-    description: "Description courte du projet. Ce que vous avez fait, les technologies utilisées et l'impact.",
-    tags: ['React', 'CSS', 'API'],
-    year: '2024',
-    link: '#',
+    title: 'Licter Dashboard',
+    category: 'Dashboard',
+    description: "Dashboard COMEX de gestion de réputation et de crise pour Decathlon. Monitoring en temps réel, analyse de sentiment et plan d'action automatisé.",
+    tags: ['React', 'Data', 'IA'],
+    year: '2026',
+    link: 'https://licter-dashboard.pages.dev',
+    image: '/project-licter.png',
   },
   {
     id: 2,
@@ -77,12 +78,16 @@ function ProjectCard({ project, index }) {
   const delay = (index % 2) + 1
 
   return (
-    <article ref={ref} className="project-card reveal" data-delay={delay}>
+    <article ref={ref} className="project-card reveal" data-delay={delay} onClick={() => window.open(project.link, '_blank')} style={{ cursor: 'pointer' }}>
       <div className="project-card__image">
-        <div className="project-card__placeholder">
-          <span>{project.title.charAt(0)}</span>
-        </div>
-        <a href={project.link} className="project-card__visit" target="_blank" rel="noopener noreferrer">
+        {project.image ? (
+          <img src={project.image} alt={project.title} className="project-card__img" />
+        ) : (
+          <div className="project-card__placeholder">
+            <span>{project.title.charAt(0)}</span>
+          </div>
+        )}
+        <a href={project.link} className="project-card__visit" target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()}>
           {t.projects.visit}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>

@@ -31,25 +31,97 @@
   margin-right: auto;
 }
 
-.navbar__links {
+/* ─── Menu (Uiverse style) ─────────────────────────────── */
+.navbar__menu {
   display: flex;
-  list-style: none;
+  justify-content: center;
   gap: 4px;
-}
-
-.navbar__links button {
-  font-family: var(--font-body);
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--text-muted);
-  padding: 8px 16px;
-  border-radius: var(--radius-sm);
-  transition: color 0.2s, background 0.2s;
-}
-
-.navbar__links button:hover {
-  color: var(--text);
+  padding: 6px;
   background: rgba(255, 255, 255, 0.06);
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.nav-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 42px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  transform-origin: center left;
+  transition: width 0.25s ease;
+  text-decoration: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.nav-link::before {
+  position: absolute;
+  z-index: -1;
+  content: "";
+  display: block;
+  border-radius: 8px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transform: translateX(100%);
+  transition: transform 0.25s ease;
+  transform-origin: center right;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  outline: 0;
+  width: 130px;
+  color: var(--text);
+}
+
+.nav-link:hover::before,
+.nav-link:focus::before {
+  transform: translateX(0);
+}
+
+.nav-link:hover .nav-link__title,
+.nav-link:focus .nav-link__title {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.nav-link__icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  flex-shrink: 0;
+  position: absolute;
+  left: 14px;
+}
+
+.nav-link__icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.nav-link__title {
+  transform: translateX(100%);
+  transition: transform 0.25s ease, opacity 0.2s ease;
+  transform-origin: center right;
+  display: block;
+  text-align: center;
+  text-indent: 20px;
+  width: 100%;
+  opacity: 0;
+  white-space: nowrap;
 }
 
 .navbar__right {
@@ -166,7 +238,7 @@
 }
 
 @media (max-width: 768px) {
-  .navbar__links,
+  .navbar__menu,
   .navbar__right {
     display: none;
   }

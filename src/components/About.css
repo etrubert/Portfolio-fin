@@ -14,7 +14,7 @@
 /* ── Arrow Timeline ── */
 .timeline {
   position: relative;
-  padding: 60px 0;
+  padding: 280px 0;
 }
 
 .timeline__arrow {
@@ -133,6 +133,39 @@
 
 .timeline.is-visible .timeline__stem-diamond {
   transform: rotate(45deg) scale(1);
+}
+
+/* Info card */
+.timeline__info {
+  width: 220px;
+  text-align: center;
+  transform: translateX(-50%) skewX(5deg);
+  margin-left: 50%;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  transition-delay: calc(var(--bar-delay) + 1.2s);
+  padding-top: 12px;
+}
+
+.timeline__stem--top .timeline__info {
+  padding-top: 0;
+  padding-bottom: 12px;
+}
+
+.timeline.is-visible .timeline__info {
+  opacity: 1;
+}
+
+.timeline__info-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.timeline__info-text {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
 /* ── Responsive ── */
