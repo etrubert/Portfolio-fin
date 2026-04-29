@@ -5,6 +5,26 @@ import './Projects.css'
 
 const projects = [
   {
+    id: 5,
+    title: 'FairWay',
+    category: 'Application Mobile',
+    context: 'Projet équipe · Léon Le Calvez, Alexandre Mc Namara, Hector Lebrun, Elyot Trubert, Amaury Despretz',
+    description: "Application mobile dédiée aux golfeurs : suivi du score en temps réel, statistiques de joueur et réservation de tee times. Swing your way.",
+    longDescription: "FairWay accompagne le golfeur du tee au green. Pendant la partie, l'application suit le score trou par trou avec une visualisation claire du parcours et de la distance restante. Une fois la partie terminée, le joueur retrouve ses statistiques détaillées (score moyen, progression, performance par parcours) et peut réserver son prochain tee time directement depuis l'app. Pensé pour rendre le golf plus accessible et plus connecté, avec une identité graphique douce qui rompt avec les codes austères du secteur.",
+    features: [
+      "Suivi du score en temps réel pendant la partie",
+      "Visualisation du parcours et de la distance restante",
+      "Statistiques détaillées du joueur",
+      "Historique des rounds",
+      "Réservation de tee times intégrée",
+      "Design épuré et identité graphique soignée",
+    ],
+    tags: ['Mobile', 'Product', 'UI/UX', 'Sport'],
+    year: '2025',
+    image: '/fairway-screenshot.png',
+    embed: 'https://www.canva.com/design/DAG4BiapqTE/aIdkQj-brxoBaSQGgSMvOg/view?embed',
+  },
+  {
     id: 3,
     title: "Test d'orientation Bachelor",
     category: 'Hackathon LVMH',
@@ -133,7 +153,17 @@ export default function Projects() {
           </button>
           <div className="video-modal__panel" onClick={(e) => e.stopPropagation()}>
             <div className="video-modal__media">
-              {activeProject.video ? (
+              {activeProject.embed ? (
+                <iframe
+                  key={activeProject.id}
+                  src={activeProject.embed}
+                  className="video-modal__embed"
+                  title={activeProject.title}
+                  allowFullScreen
+                  allow="fullscreen"
+                  loading="lazy"
+                />
+              ) : activeProject.video ? (
                 <video
                   key={activeProject.id}
                   src={activeProject.video}
