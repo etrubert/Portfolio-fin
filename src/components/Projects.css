@@ -292,6 +292,31 @@
   background: var(--accent);
 }
 
+.video-modal__reflection {
+  margin-top: 8px;
+  padding: 18px 18px 20px;
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 8px;
+}
+
+.video-modal__section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 10px;
+}
+
+.video-modal__reflection-text {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.65;
+  margin: 0;
+}
+
 .video-modal__cta {
   display: inline-flex;
   align-items: center;
@@ -356,10 +381,13 @@
   .video-modal__panel {
     grid-template-columns: 1fr;
     max-height: 92vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .video-modal__info {
     padding: 20px;
     max-height: none;
+    overflow-y: visible;
   }
   .video-modal__media {
     min-height: 0;
@@ -371,5 +399,11 @@
     min-height: 0;
     height: 56.25vw;
     max-height: 50vh;
+  }
+  .video-modal__close {
+    top: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
   }
 }

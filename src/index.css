@@ -66,6 +66,15 @@ section {
   padding: 100px 0;
 }
 
+@media (max-width: 600px) {
+  .container {
+    padding: 0 20px;
+  }
+  section {
+    padding: 70px 0;
+  }
+}
+
 .section-label {
   display: inline-block;
   font-size: 12px;

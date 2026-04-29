@@ -23,12 +23,13 @@ const projects = [
     year: '2025',
     image: '/fairway-screenshot.png',
     embed: 'https://www.canva.com/design/DAG4BiapqTE/aIdkQj-brxoBaSQGgSMvOg/view?embed',
+    reflection: "Le golf est un sport où l'expérience utilisateur des outils existants reste très datée. On a fait le choix d'attaquer le sujet par l'identité graphique : couleurs douces, illustrations dessinées, typographie travaillée. Ce parti pris a structuré tout le reste — chaque écran a été pensé pour que l'app paraisse aussi accessible qu'une app lifestyle. Le vrai défi a été de rester simple sans sacrifier la richesse fonctionnelle (suivi, stats, réservation). Ce projet en équipe de 5 m'a aussi appris à arbitrer rapidement et à m'aligner avec des sensibilités différentes (design, dev, business).",
   },
   {
     id: 3,
     title: "Test d'orientation Bachelor",
-    category: 'Hackathon LVMH',
-    context: 'Hackathon LVMH · Équipe pluridisciplinaire · Format court',
+    category: 'Projet école',
+    context: 'Projet école · Équipe pluridisciplinaire · Format court',
     description: "Application web qui aide les lycéens à identifier le Bachelor le plus adapté à leur profil grâce à un questionnaire personnalisé.",
     longDescription: "Beaucoup de lycéens choisissent leur école d'enseignement supérieur sans avoir une vision claire de ce qui leur correspond vraiment. Le test d'orientation Bachelor part de ce constat : on transforme une décision floue et anxiogène en une recommandation claire en quelques minutes. Le lycéen renseigne son profil (prénom, classe, contact, centres d'intérêt) puis répond à une série de questions calibrées sur sa personnalité, ses ambitions et son rapport au monde du travail. L'algorithme recoupe les réponses avec les programmes des écoles partenaires et propose le Bachelor le mieux aligné, avec une explication concrète du choix.",
     features: [
@@ -43,6 +44,7 @@ const projects = [
     year: '2025',
     image: '/bachelor-screenshot.png',
     video: '/lvmh.mp4',
+    reflection: "Le brief de départ demandait un dispositif marketing pour les écoles, mais on a vite réalisé que le vrai problème était côté lycéens : ils ne savent pas ce qui leur correspond. On a inversé l'angle — au lieu de pousser des brochures, on offre une réponse personnalisée. Le plus dur a été de calibrer les questions : trop nombreuses et l'utilisateur abandonne, trop génériques et la recommandation n'a aucune valeur. On a itéré plusieurs fois sur la formulation pour arriver à un équilibre. Côté dev, l'enjeu était de garder une interface fluide tout en collectant assez de signal pour que la reco tienne la route.",
   },
   {
     id: 2,
@@ -63,6 +65,7 @@ const projects = [
     year: '2025',
     image: '/payfit-screenshot.png',
     video: '/payfit-hackathon.mp4',
+    reflection: "Construire une calculatrice de paie, ce n'est pas un projet technique au sens classique : c'est surtout un travail de lecture et de modélisation de la réglementation. On a passé une bonne partie du temps à éplucher les barèmes URSSAF et les fiches BOSS pour identifier ce qui change selon le contrat, l'effectif ou la région. La leçon la plus forte du projet : la valeur ne vient pas d'un calcul plus malin, elle vient de la rigueur des sources. Côté UX, le pari a été de tout faire tenir sur une seule page lisible, alors qu'une fiche de paie réelle est dense — il fallait rendre la complexité acceptable sans la cacher.",
   },
   {
     id: 1,
@@ -82,6 +85,7 @@ const projects = [
     year: '2026',
     link: 'https://licter-dashboard.pages.dev',
     image: '/project-licter.png',
+    reflection: "Concevoir pour un COMEX change radicalement la manière de faire un dashboard. Les utilisateurs ne sont pas des power users qui veulent fouiller la donnée : ils veulent en 30 secondes comprendre s'il faut s'inquiéter ou pas. Tout le travail a été de filtrer le bruit pour ne faire remonter que ce qui mérite l'attention. La partie la plus délicate a été le plan d'action automatisé : il fallait que la recommandation soit utile sans donner l'illusion de remplacer le jugement humain. J'ai aussi appris à arbitrer entre densité d'information et clarté visuelle — un dashboard qui en montre trop ne sert à rien.",
   },
   {
     id: 4,
@@ -102,6 +106,7 @@ const projects = [
     year: '2025',
     image: '/mirakl-screenshot.png',
     video: '/mirakl.mp4',
+    reflection: "C'est le projet dont je suis le plus fier — pas seulement parce qu'on a gagné le hackathon, mais à cause de la dynamique d'équipe. On est partis d'une vraie problématique métier (les recruteurs tech qui passent leurs journées à filtrer des CV non pertinents) et on l'a attaquée par l'angle de l'automatisation : RAG pour comprendre la fiche de poste, n8n pour orchestrer le sourcing, scoring pour prioriser. Mais la décision qui a fait la différence, c'est le mode démo (Shift+D) : il transforme un prototype en outil qu'on peut pitcher en 60 secondes. Le jury n'a pas eu à imaginer comment ça marche, il l'a vu. Cette idée du « démo intégrée » est quelque chose que je veux réutiliser sur tous mes projets futurs.",
   },
 ]
 
@@ -198,6 +203,12 @@ export default function Projects() {
                     <li key={f}>{f}</li>
                   ))}
                 </ul>
+              )}
+              {activeProject.reflection && (
+                <div className="video-modal__reflection">
+                  <h4 className="video-modal__section-title">Démarche & réflexion</h4>
+                  <p className="video-modal__reflection-text">{activeProject.reflection}</p>
+                </div>
               )}
               <div className="project-card__tags">
                 {activeProject.tags.map(tag => (

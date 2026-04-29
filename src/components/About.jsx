@@ -86,6 +86,19 @@ export default function About() {
           </div>
         </div>
 
+        {/* Mobile-only stacked list */}
+        <ul className="timeline-mobile">
+          {bars.map((bar, i) => (
+            <li key={i} className="timeline-mobile__item">
+              <span className="timeline-mobile__dot" style={{ background: bar.color }} />
+              <div>
+                <h4 className="timeline-mobile__title" style={{ color: bar.color }}>{bar.title}</h4>
+                <p className="timeline-mobile__text">{bar.text}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
       </div>
     </section>
   )
