@@ -58,7 +58,7 @@ export default function About() {
               className={`timeline__bar timeline__bar--${bar.position}`}
               style={{
                 '--bar-color': bar.color,
-                '--bar-delay': `${i * 0.3}s`,
+                '--bar-delay': `${i * 0.12}s`,
                 background: bar.color,
                 left: `${(bar.start + 0.5) * cellWidth}%`,
                 width: `${(bar.end - bar.start) * cellWidth}%`,
