@@ -87,9 +87,9 @@ const projects = [
     id: 4,
     title: 'TalentAI — Mirakl',
     category: 'Hackathon Mirakl',
-    context: 'Hackathon Mirakl · IA & automatisation · Démo Shift+D',
-    description: "Plateforme de recrutement augmentée par l'IA pour Mirakl : sourcing automatisé, scoring des candidats et tableau de bord temps réel.",
-    longDescription: "Le recrutement tech consomme énormément de temps à filtrer manuellement des CV qui n'ont rien à voir avec le poste. TalentAI part de l'idée inverse : on décrit la fiche de poste, l'IA scanne les profils disponibles, attribue un score de pertinence basé sur les compétences demandées (langages, frameworks, expériences) et fait remonter directement les meilleurs candidats. Le dashboard agrège en temps réel les offres actives, les candidats sourcés, les scores moyens et les emails envoyés. Un mode démo (Shift+D) déroule automatiquement le flux complet — création d'un job, scoring, sélection des top candidats — pour pitcher l'outil à un décideur en moins d'une minute.",
+    context: '🏆 Projet vainqueur du Hackathon Mirakl · IA & automatisation',
+    description: "Plateforme de recrutement augmentée par l'IA pour Mirakl : sourcing automatisé, scoring des candidats et tableau de bord temps réel. Projet vainqueur du hackathon.",
+    longDescription: "Projet réalisé dans le cadre du hackathon Mirakl, remporté avec mon équipe. Le recrutement tech consomme énormément de temps à filtrer manuellement des CV qui n'ont rien à voir avec le poste. TalentAI part de l'idée inverse : on décrit la fiche de poste, l'IA scanne les profils disponibles, attribue un score de pertinence basé sur les compétences demandées (langages, frameworks, expériences) et fait remonter directement les meilleurs candidats. Le dashboard agrège en temps réel les offres actives, les candidats sourcés, les scores moyens et les emails envoyés. Un mode démo (Shift+D) déroule automatiquement le flux complet — création d'un job, scoring, sélection des top candidats — pour pitcher l'outil à un décideur en moins d'une minute.",
     features: [
       'Scoring automatique des candidats par IA',
       "Dashboard temps réel : offres actives, candidats, score moyen, emails",
