@@ -8,15 +8,18 @@ const projects = [
     id: 3,
     title: "Test d'orientation Bachelor",
     category: 'Hackathon LVMH',
+    context: 'Hackathon LVMH · Équipe pluridisciplinaire · Format court',
     description: "Application web qui aide les lycéens à identifier le Bachelor le plus adapté à leur profil grâce à un questionnaire personnalisé.",
-    longDescription: "Outil pédagogique imaginé lors du hackathon LVMH. Le lycéen renseigne son profil (classe, intérêts, ambitions) et répond à une série de questions calibrées : l'algorithme recoupe les réponses avec les programmes des écoles partenaires pour proposer le Bachelor le mieux aligné. Pensé pour réduire l'angoisse du choix d'orientation et donner une réponse claire en quelques minutes.",
+    longDescription: "Beaucoup de lycéens choisissent leur école d'enseignement supérieur sans avoir une vision claire de ce qui leur correspond vraiment. Le test d'orientation Bachelor part de ce constat : on transforme une décision floue et anxiogène en une recommandation claire en quelques minutes. Le lycéen renseigne son profil (prénom, classe, contact, centres d'intérêt) puis répond à une série de questions calibrées sur sa personnalité, ses ambitions et son rapport au monde du travail. L'algorithme recoupe les réponses avec les programmes des écoles partenaires et propose le Bachelor le mieux aligné, avec une explication concrète du choix.",
     features: [
+      'Onboarding rapide : prénom, nom, email, classe',
       "Questionnaire d'orientation guidé étape par étape",
-      'Recommandation personnalisée selon le profil',
-      'Capture de leads (prénom, nom, email, classe)',
-      'Interface fluide et accessible mobile / desktop',
+      'Recommandation personnalisée et explicable',
+      'Capture de leads pour les écoles partenaires',
+      'Interface responsive (mobile, tablette, desktop)',
+      "Charte graphique cohérente avec l'identité Bachelor",
     ],
-    tags: ['React', 'UX', 'Education'],
+    tags: ['React', 'UX', 'Product', 'Education'],
     year: '2025',
     image: '/bachelor-screenshot.png',
     video: '/lvmh.mp4',
@@ -25,15 +28,18 @@ const projects = [
     id: 2,
     title: 'Calculatrice Fiche de Paie',
     category: 'Hackathon Payfit',
+    context: 'Hackathon Payfit · Conformité 2026 · Sources officielles',
     description: "Calculatrice de fiche de paie française, conçue lors du hackathon Payfit. Calcul du net à partir du brut avec les taux 2026 et les sources officielles.",
-    longDescription: "Outil web qui transforme un salaire brut en fiche de paie complète : cotisations salariales et patronales, net à payer, net imposable. Tous les paramètres réels sont pris en compte (type de contrat, temps de travail, région pour le versement mobilité, effectif de l'entreprise, taux AT/MP, avantages en nature). Les taux sont alignés sur les barèmes 2026 et sourcés depuis urssaf.fr, service-public.gouv.fr et boss.gouv.fr.",
+    longDescription: "Comprendre sa fiche de paie reste opaque pour la majorité des salariés français : cotisations qui se chevauchent, taux qui varient selon le contrat, plafonds qui changent chaque année. Cette calculatrice s'attaque à ce problème en transformant un simple salaire brut en fiche de paie lisible et fidèle au réel. L'outil prend en compte tous les paramètres concrets — type de contrat (CDI, CDD, alternance, stage, freelance), temps de travail, région pour le versement mobilité, effectif de l'entreprise, taux AT/MP, avantages en nature — et applique les barèmes 2026 sourcés depuis URSSAF, BOSS et service-public.gouv.fr. Le résultat : cotisations salariales et patronales détaillées, net à payer, net imposable.",
     features: [
       'Calcul en temps réel à chaque modification',
-      'Barèmes & taux 2026 conformes',
+      'Barèmes & taux 2026 strictement conformes',
       'Sources officielles : URSSAF, BOSS, service-public',
-      'CDI, CDD, alternance, stage et freelance',
+      'Tous les contrats : CDI, CDD, alternance, stage, freelance',
+      "Prise en compte des avantages en nature et du versement mobilité",
+      "Détail complet : cotisations salariales, patronales, net imposable",
     ],
-    tags: ['React', 'Product', 'Finance'],
+    tags: ['React', 'Product', 'Finance', 'Réglementation'],
     year: '2025',
     image: '/payfit-screenshot.png',
     video: '/payfit-hackathon.mp4',
@@ -42,8 +48,17 @@ const projects = [
     id: 1,
     title: 'Licter Dashboard',
     category: 'Dashboard',
-    description: "Dashboard COMEX de gestion de réputation et de crise pour Decathlon. Monitoring en temps réel, analyse de sentiment et plan d'action automatisé.",
-    tags: ['React', 'Data', 'IA'],
+    context: 'Projet client Decathlon · COMEX · Production',
+    description: "Dashboard COMEX de gestion de réputation et de crise pour Decathlon : monitoring temps réel, analyse de sentiment et plan d'action automatisé.",
+    longDescription: "Outil exécutif pensé pour le COMEX de Decathlon. Licter agrège en continu les signaux de réputation de la marque (avis clients, presse, réseaux sociaux), les passe au filtre d'une analyse de sentiment et fait remonter automatiquement ce qui mérite l'attention de la direction. En cas de signal faible ou de crise naissante, le dashboard propose un plan d'action structuré pour réagir vite, plutôt que de laisser les équipes interpréter une masse de données brutes. L'objectif : transformer une veille passive en décision dirigeante, en quelques minutes plutôt qu'en plusieurs jours.",
+    features: [
+      'Monitoring temps réel multi-canal',
+      "Analyse de sentiment automatisée par IA",
+      "Détection précoce des signaux de crise",
+      "Plan d'action recommandé pour le COMEX",
+      'Interface synthétique pensée pour la direction',
+    ],
+    tags: ['React', 'Data', 'IA', 'Dashboard'],
     year: '2026',
     link: 'https://licter-dashboard.pages.dev',
     image: '/project-licter.png',
@@ -52,15 +67,18 @@ const projects = [
     id: 4,
     title: 'TalentAI — Mirakl',
     category: 'Hackathon Mirakl',
+    context: 'Hackathon Mirakl · IA & automatisation · Démo Shift+D',
     description: "Plateforme de recrutement augmentée par l'IA pour Mirakl : sourcing automatisé, scoring des candidats et tableau de bord temps réel.",
-    longDescription: "Outil interne pensé pour les équipes recrutement de Mirakl. À partir d'une fiche de poste, l'IA scrute les profils disponibles, attribue un score de pertinence et remonte les meilleurs candidats. Le dashboard centralise les offres ouvertes, le pipeline de candidats et les emails envoyés, et un mode démo (Shift+D) déroule un walkthrough automatique du flux job → scoring → candidat.",
+    longDescription: "Le recrutement tech consomme énormément de temps à filtrer manuellement des CV qui n'ont rien à voir avec le poste. TalentAI part de l'idée inverse : on décrit la fiche de poste, l'IA scanne les profils disponibles, attribue un score de pertinence basé sur les compétences demandées (langages, frameworks, expériences) et fait remonter directement les meilleurs candidats. Le dashboard agrège en temps réel les offres actives, les candidats sourcés, les scores moyens et les emails envoyés. Un mode démo (Shift+D) déroule automatiquement le flux complet — création d'un job, scoring, sélection des top candidats — pour pitcher l'outil à un décideur en moins d'une minute.",
     features: [
       'Scoring automatique des candidats par IA',
-      'Dashboard temps réel (offres, candidats, emails)',
+      "Dashboard temps réel : offres actives, candidats, score moyen, emails",
       'Top candidats classés par adéquation au poste',
+      "Filtres par compétences (Python, ML, RAG, n8n…)",
       'Mode démo guidé (walkthrough Shift+D)',
+      'Workflow automatisé via n8n pour le sourcing',
     ],
-    tags: ['React', 'IA', 'RAG', 'n8n'],
+    tags: ['React', 'IA', 'RAG', 'n8n', 'Automation'],
     year: '2025',
     image: '/mirakl-screenshot.png',
     video: '/mirakl.mp4',
@@ -115,14 +133,22 @@ export default function Projects() {
           </button>
           <div className="video-modal__panel" onClick={(e) => e.stopPropagation()}>
             <div className="video-modal__media">
-              <video
-                key={activeProject.id}
-                src={activeProject.video}
-                className="video-modal__video"
-                controls
-                autoPlay
-                playsInline
-              />
+              {activeProject.video ? (
+                <video
+                  key={activeProject.id}
+                  src={activeProject.video}
+                  className="video-modal__video"
+                  controls
+                  autoPlay
+                  playsInline
+                />
+              ) : activeProject.image ? (
+                <img
+                  src={activeProject.image}
+                  alt={activeProject.title}
+                  className="video-modal__image"
+                />
+              ) : null}
             </div>
             <div className="video-modal__info">
               <div className="video-modal__meta">
@@ -130,6 +156,9 @@ export default function Projects() {
                 <span className="project-card__year">{activeProject.year}</span>
               </div>
               <h3 className="video-modal__title">{activeProject.title}</h3>
+              {activeProject.context && (
+                <p className="video-modal__context">{activeProject.context}</p>
+              )}
               <p className="video-modal__desc">
                 {activeProject.longDescription || activeProject.description}
               </p>
@@ -145,6 +174,19 @@ export default function Projects() {
                   <span key={tag} className="tag">{tag}</span>
                 ))}
               </div>
+              {activeProject.link && activeProject.link !== '#' && (
+                <a
+                  href={activeProject.link}
+                  className="video-modal__cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Voir le projet en ligne
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+                  </svg>
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -158,9 +200,9 @@ function ProjectCard({ project, index, onOpenProject }) {
   const ref   = useScrollReveal({ threshold: 0.1 })
   const delay = (index % 2) + 1
 
-  const hasVideoModal = Boolean(project.video)
+  const hasModal = Boolean(project.video || project.longDescription)
   const handleClick = () => {
-    if (hasVideoModal) onOpenProject(project)
+    if (hasModal) onOpenProject(project)
     else if (project.link && project.link !== '#') window.open(project.link, '_blank')
   }
 
@@ -184,9 +226,9 @@ function ProjectCard({ project, index, onOpenProject }) {
           </div>
         )}
         <div className="project-card__visit">
-          {hasVideoModal ? 'Regarder la vidéo' : t.projects.visit}
+          {project.video ? 'Regarder la vidéo' : hasModal ? 'En savoir plus' : t.projects.visit}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            {hasVideoModal ? (
+            {project.video ? (
               <polygon points="5 3 19 12 5 21 5 3" fill="currentColor" />
             ) : (
               <>
